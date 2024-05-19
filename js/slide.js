@@ -42,6 +42,12 @@ export default class Slide {
         const moveType = (event.type === 'mouseup') ? 'mousemove' : 'touchmove';
         this.wrapper.removeEventListener(moveType, this.onMove);
         this.dist.finalPosition = this.dist.movePosition;
+        this.changeSlideOnEnd();
+    }
+
+    changeSlideOnEnd() {
+        if(this.dist.movement);
+        console.log(this.dist.movement)
     }
 
     addSlideEvents() {
@@ -90,10 +96,19 @@ export default class Slide {
         this.dist.finalPosition = activeSlide.position;
     }
 
+    activePrevSlide() {
+        if (this.index.prev !== undefined) this.changeSlide(this.index.prev);
+    }
+
+    activeNextSlide() {
+        if (this.index.next !== undefined) this.changeSlide(this.index.next);
+    }
+
     init() {
         this.bindEvents();
         this.addSlideEvents();
         this.slidesConfig();
+
         return this;
     }
 }
