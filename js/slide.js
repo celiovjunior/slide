@@ -33,7 +33,7 @@ export default class Slide {
     }
 
     onMove(event) {
-        const pointerPosition = (event.type === 'mousemove') ? event.clientX :  event.changedTouches[0].clientX;
+        const pointerPosition = (event.type === 'mousemove') ? event.clientX : event.changedTouches[0].clientX;
         const finalPosition = this.updatePosition(pointerPosition);
         this.moveSlide(finalPosition);
     }
